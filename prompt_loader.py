@@ -4,6 +4,7 @@ This file helps load the dataset and parse the relevant data into the prompt des
 from datasets import load_dataset
 from loader import parse_generations_dataset
 from argparse import ArgumentParser
+import os
 
 if __name__ == "__main__":
     dataset = load_dataset("jhu-clsp/CLERC", data_files={"data": f"generation/test.jsonl"})["data"]
@@ -33,7 +34,9 @@ if __name__ == "__main__":
         out_dir = "prompts/small"
     else:
         raise NotImplementedError("The mode is not implemented")
-    
+    if not os.path.exists(out_dir):
+        os.makedirs(out_dir)
+        
     for idx in range(start, end):
         data = dataset[idx]
         docid = data["docid"]

@@ -19,16 +19,6 @@ def init_openai_client(port=None, personal=False):
         api_key=openai_api_key
     )
 
-def init_azure_openai_client():
-    azure_openai_endpoint = os.getenv("AZURE_TX_ENDPOINT")
-    azure_openai_api_key = os.getenv("AZURE_TX50k_KEY")
-    return AzureOpenAI(
-        api_key=azure_openai_api_key,
-        api_version="2023-09-01-preview",
-        azure_endpoint=azure_openai_endpoint
-    )
-
-
 def request_GPT(client, prompt, max_retries = 30, max_tokens=400, model="gpt-4o", system_prompt=None):
     num_try = 0
     # print(prompt)
@@ -58,14 +48,9 @@ if __name__ == "__main__":
     parser.add_argument("--num_batches", type=int, help="Total number of batches", default=4)
     args = parser.parse_args()
     mode = args.mode
-
-    # client = init_openai_client(personal=False)
-    if args.model == "gpt-4o":
-        client = init_azure_openai_client()
-        model = os.getenv("AZURE_TX50k_DEV")
-    else:
-        client = init_openai_client(port=args.port)
-        model = args.model
+ 
+    client = init_openai_client(port=args.port)
+    model = args.model
     
     prompt_list = [DETECT_SYSTEM_PROMPT_4, DETECT_SYSTEM_PROMPT_8, DETECT_SYSTEM_PROMPT_16, DETECT_SYSTEM_PROMPT_20]
     if mode == "train":
