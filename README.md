@@ -16,6 +16,10 @@ python gpt_detect.py [train, test, small, large]
 This runs detector over the instances and outputs a detection dataset (in HuggingFace format)
 
 If you are replicating train/test results from the original paper, do:
+```
+python gpt_detect.py train
+python gpt_detect.py test
+```
 
 3. Parse human annotations and add the labels to the detection dataset
 ```
