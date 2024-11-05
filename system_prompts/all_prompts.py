@@ -1,0 +1,4 @@
+from system_prompts.system_20 import DETECT_SYSTEM_PROMPT_20
+from system_prompts.system_16 import DETECT_SYSTEM_PROMPT_16
+from system_prompts.system_8 import DETECT_SYSTEM_PROMPT_8
+from system_prompts.system_4 import DETECT_SYSTEM_PROMPT_4

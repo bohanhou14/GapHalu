@@ -1,0 +1,17 @@
+clerc_generations/*
+outputs
+*.outputs
+BARTScore
+prompts
+*.slurm
+*.md
+*.out
+check.py
+test.py
+*.png
+examples
+test_examples
+train_examples
+analyses/*
+outputs/*
+__pycache__
