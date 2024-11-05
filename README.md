@@ -1,4 +1,9 @@
-Pipeline to generate the detection datasets and run the detection experiments 
+## Official Repo for the paper: [Gaps or Hallucinations? Scrutinizing Machine-Generated Legal Analysis for Fine-grained Text Evaluations](https://arxiv.org/abs/2409.09947)
+
+### News
+This paper and CLERC will be presented at NLLP 2024 (EMNLP) at Miami, Florida! 
+
+### Pipeline to generate the detection datasets and run the detection experiments 
 
 1. Generate prompts for the GPT4o-based detector:
 ```
@@ -13,7 +18,12 @@ python prompt_loader.py [train, test, small, large]
 ```
 python gpt_detect.py [train, test, small, large]
 ```
-This runs detector over the instances and outputs a detection dataset (in HuggingFace format)
+This runs detector over the instances and outputs a detection dataset (in HuggingFace format).
+
+Note that you need to supply your own OPENAI_API_KEY in .bashrc
+```
+export OPENAI_API_KEY="YOUR KEY"
+```
 
 If you are replicating train/test results from the original paper, do:
 ```
