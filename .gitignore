@@ -4,7 +4,6 @@ outputs
 BARTScore
 prompts
 *.slurm
-*.md
 *.out
 check.py
 test.py
